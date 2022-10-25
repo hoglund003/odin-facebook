@@ -6,4 +6,14 @@ class User < ApplicationRecord
 
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
+
+  has_many :friend_requests, dependent: :destroy
+
+  def friend_requests_in
+    FriendRequest.where(friend: self)
+  end
+
+  def friend_requests_out
+    self.friend_requests
+  end
 end
