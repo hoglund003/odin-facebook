@@ -1,0 +1,41 @@
+@import "colors";
+
+@mixin transition {
+  transition: .1s;
+}
+
+.navbar {
+  background-color: $red;
+  color: $white;
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  user-select: none;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  li {
+    padding: 0.6rem;
+    border-radius: 0.4rem;
+    @include transition;
+  }
+
+  li a {
+    @include transition;
+  }
+
+  li:hover {
+    cursor: pointer;
+    background-color: $white;
+    box-shadow: $shadow;
+    @include transition;
+    transform: scale(1.1);
+    a {
+      color: $red;
+      @include transition;
+    }
+  }
+}
