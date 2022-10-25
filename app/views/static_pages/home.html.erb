@@ -1,7 +1,15 @@
 <div class="container">
-  <div class="welcome">
-    <h1 class="title">Welcome</h1>
-    <%= button_to "Login", new_user_session_path, method: :get, class: "login btn" %>
-    <%= link_to "Sign up", new_user_registration_path, method: :get %>
-  </div>
+  <% if user_signed_in? %>
+    <ul>
+      <% current_user.friends.each do |friend| %>
+        <%= friend.email %>
+      <% end %>
+    </ul>
+  <% else %>
+    <div class="welcome">
+      <h1 class="title">Welcome</h1>
+      <%= button_to "Login", new_user_session_path, method: :get, class: "login btn" %>
+      <%= link_to "Sign up", new_user_registration_path, method: :get %>
+    </div>
+  <% end %>
 </div>

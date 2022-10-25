@@ -1,0 +1,12 @@
+<h1><%= @user.email %></h1>
+<h3>Friends:</h3>
+<ul>
+<% @user.friends.each do |friend| %>
+  <li>
+    <%= friend.email %>
+    <% unless friend == current_user %>
+      <%= button_to "Add friend"  %>
+    <% end %>
+  </li>
+<% end %>
+</ul>
