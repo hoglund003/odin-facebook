@@ -20,6 +20,11 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
  }
 
+ .body {
+  display: flex;
+  justify-content: center;
+ }
+
  ul li {
   list-style: none;
  }
@@ -28,3 +33,9 @@
   text-decoration: none;
   color: white;
  }
+
+ .container {
+  /* width: clamp(); */
+  max-width: 80rem;
+  margin: auto;
+}
