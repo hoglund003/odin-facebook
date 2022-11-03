@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   has_one :profile
 
+  has_many :posts
+
   def friend_requests_in
     FriendRequest.where(friend: self)
   end
