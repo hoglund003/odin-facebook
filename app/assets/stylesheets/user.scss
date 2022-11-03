@@ -1,0 +1,67 @@
+@import "colors";
+
+@mixin card {
+  background-color: $white;
+  box-shadow: $shadow;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.profile {
+  display: grid;
+  grid-template: 0.2fr 0.8fr 1fr / 1fr 2fr;
+
+  .avatar {
+    grid-row: 1 / span 2;
+    grid-column: 1;
+    align-self: center;
+    justify-self: center;
+
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+  }
+
+  .name {
+    grid-row: 1;
+    grid-column: 2;
+
+    align-self: end;
+  }
+
+  .bio {
+    grid-row: 2;
+    grid-column: 2;
+
+    p {
+      @include card;
+      height: 60%;
+    }
+  }
+
+  .info {
+    @include card;
+    width: 80%;
+
+    grid-row: 3;
+    grid-column: 1;    
+  }
+
+  .posts {
+    grid-row: 3;
+    grid-column: 2;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+
+    border-top: 3px solid $red;
+
+    padding: 2rem;
+
+    .post {
+      @include card;
+    }
+  }
+}

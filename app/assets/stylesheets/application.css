@@ -26,13 +26,16 @@
   align-items: center;
  }
 
+ a {
+  columns: black;
+ }
+
  ul li {
   list-style: none;
  }
 
  li a {
   text-decoration: none;
-  color: white;
  }
 
  .container {

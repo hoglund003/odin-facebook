@@ -1,12 +1,30 @@
-<h1><%= @user.email %></h1>
-<h3>Friends:</h3>
-<ul>
-<% @user.friends.each do |friend| %>
-  <li>
-    <%= friend.email %>
-    <% unless friend == current_user %>
-      <%= button_to "Add friend"  %>
-    <% end %>
-  </li>
-<% end %>
-</ul>
+<div class="container">
+  <div class="profile">
+    <img class="avatar" src="https://avatars.dicebear.com/api/initials/<%= @user.profile.full_name %>.svg?radius=50" alt="">
+    <h1 class="name"><%= @user.profile.full_name %></h1>
+    <div class="bio">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat placeat illo, doloribus quod minima cumque. Facere expedita corrupti aspernatur, autem accusamus nobis velit animi ipsam ducimus, vitae ab quibusdam aliquid.
+      </p>
+    </div>
+    <div class="info">
+      <h2>Info</h2>
+      <ul>
+        <li>lorem ipsum</li>
+        <li>lorem ipsum</li>
+        <li>lorem ipsum</li>
+        <li>lorem ipsum</li>
+        <li>lorem ipsum</li>
+        <li>lorem ipsum</li>
+      </ul>
+    </div>
+    <div class="posts">
+      <div class="post" style='height: 10rem; width: 10rem; background-color: gray;'>Post placeholder</div>
+      <div class="post" style='height: 10rem; width: 10rem; background-color: gray;'>Post placeholder</div>
+      <div class="post" style='height: 10rem; width: 10rem; background-color: gray;'>Post placeholder</div>
+      <div class="post" style='height: 10rem; width: 10rem; background-color: gray;'>Post placeholder</div>
+      <div class="post" style='height: 10rem; width: 10rem; background-color: gray;'>Post placeholder</div>
+      <div class="post" style='height: 10rem; width: 10rem; background-color: gray;'>Post placeholder</div>
+    </div>
+  </div>
+</div>

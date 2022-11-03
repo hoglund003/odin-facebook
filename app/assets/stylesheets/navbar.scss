@@ -25,6 +25,7 @@
 
   li a {
     @include transition;
+    color: $white;
   }
 
   li:hover {
