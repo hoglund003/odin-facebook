@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   has_many :friend_requests, dependent: :destroy
 
+  has_one :profile
+
   def friend_requests_in
     FriendRequest.where(friend: self)
   end

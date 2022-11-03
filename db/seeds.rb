@@ -1,8 +1,10 @@
 User.delete_all
 
 password = "Admin:123"
-User.create!(email: "admin@local", password: password)
+admin = User.create!(email: "admin@local", password: password)
+Profile.create!(user: admin, first_name: "Admin", last_name: "Boss")
 10.times do 
   email = Faker::Internet.safe_email
-  User.create!(email: email, password: password)
+  user = User.create!(email: email, password: password)
+  Profile.create!(user: user, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
 end
