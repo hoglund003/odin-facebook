@@ -1,8 +1,18 @@
 <div class="container">
   <% if user_signed_in? %>
+    <h1><%= current_user.email %></h1>
     <ul>
       <% current_user.friends.each do |friend| %>
         <%= friend.email %>
+      <% end %>
+    </ul>
+    <h4>Requests</h4>
+    <ul>
+      <% current_user.friend_requests_in.each do |req| %>
+        <li>
+          <%= req.user.email %>
+          <%= link_to "Accept", friend_request_path(req), data: {"turbo-method": :patch}%>
+        </li>
       <% end %>
     </ul>
   <% else %>

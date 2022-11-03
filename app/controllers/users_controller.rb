@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def friends
     @user = find_user(params[:user_id])
     @friends = @user.friends
+    @friend_requests = @user.friend_requests_in
   end
 
   private

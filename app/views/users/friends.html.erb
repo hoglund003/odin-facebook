@@ -1,17 +1,35 @@
 <div class="container">
+  <% if @friend_requests.any? %>
+    <div class="friend-requests">
+      <h2>Requests</h2>
+      <ul>
+          <% @friend_requests.each do |request| %>
+            <li class="friend">
+              <a href="<%= user_path(request.user) %>">
+                <img class="avatar" src="https://avatars.dicebear.com/api/initials/<%= request.user.profile.full_name %>.svg?radius=50" alt="avatar">
+                <p class="name"><%= request.user.profile.full_name %></p>
+              </a>
+              <div>
+                <%= render partial: "respond_button", locals: {request: request} %>
+              </div>
+            </li>
+          <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="friends">
     <h2>Friends</h2>
     <ul>
       <% @friends.each do |friend| %>
-        <a href="<%= user_path(friend) %>">
           <li class="friend">
-            <img class="avatar" src="https://avatars.dicebear.com/api/initials/<%= friend.profile.full_name %>.svg?radius=50" alt="avatar">
-            <p class="name"><%= friend.profile.full_name %></p>
+            <a href="<%= user_path(friend) %>">
+              <img class="avatar" src="https://avatars.dicebear.com/api/initials/<%= friend.profile.full_name %>.svg?radius=50" alt="avatar">
+              <p class="name"><%= friend.profile.full_name %></p>
+            </a>
             <div>
               <%= render partial: "add_friend_button", locals: {user: friend} %>
             </div>
           </li>
-        </a>
       <% end %>
     </ul>
   </div>

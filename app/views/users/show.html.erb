@@ -14,7 +14,11 @@
         <li>
           <%= link_to "#{@user.friends.count} Friends", user_friends_path(@user)%>
         </li>
-        <li>lorem ipsum</li>
+        <li>
+          <% if current_user.friend_requests_in.any? %>
+            <%= link_to "New Friend Request", user_friends_path(@user) %>
+          <% end %>
+        </li>
         <li>lorem ipsum</li>
         <li>lorem ipsum</li>
         <li>lorem ipsum</li>

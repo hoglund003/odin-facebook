@@ -17,6 +17,11 @@
   }
 }
 
+.button-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .profile {
   display: grid;
   grid-template: 0.2fr 0.8fr 1fr / 1fr 2fr;
@@ -89,22 +94,42 @@
   border-radius: 1rem;
 }
 
-.friends {
+.accept.button {
+  padding: 1rem;
+  font-size: 1rem;
+
+  background-color: $red;
+  color: $white;
+}
+
+.ignore.button {
+  padding: 1rem;
+  font-size: 1rem;
+
+  background-color: $white;
+  color: $red;
+}
+
+.friends, .friend-requests {
   .friend {
-    .avatar {
-      width: 4rem;
-    }
-    .name {
-      font-weight: 600;
-      font-size: 1.4rem;
+    a {
+      .avatar {
+        width: 4rem;
+      }
+      .name {
+        font-weight: 600;
+        font-size: 1.4rem;
+      }  
+      & > *:last-child {
+        margin-left: auto;
+      }
+      display: flex;
+      align-items: center;
+      gap: 2rem;
     }
     display: flex;
     align-items: center;
     gap: 2rem;
-
-    & > *:last-child {
-      margin-left: auto;
-    }
   }
   h2 {
     background-color: $red;
