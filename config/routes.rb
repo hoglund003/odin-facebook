@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   end
   get "profile" => "users#show"
   get "profile/friends" => "users#friends"
-  resources :friend_requests, only: ['update']
+  resources :friend_requests, only: ['update', 'destroy']
   root 'static_pages#home'
 end

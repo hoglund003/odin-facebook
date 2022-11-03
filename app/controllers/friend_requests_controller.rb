@@ -16,4 +16,10 @@ class FriendRequestsController < ApplicationController
     Friendship.create(user: friend_request.friend, friend: friend_request.user)
     redirect_back(fallback_location: root_path)
   end
+
+  def destroy
+    friend_request = FriendRequest.find(params[:id])
+    friend_request.delete
+    redirect_back(fallback_location: root_path)
+  end
 end
