@@ -4,7 +4,7 @@
     <li><a href="#">Odin-Facebook</a></li>
     <li>
       <% if user_signed_in? %>
-        <%= link_to "My Profile", profile_path %>
+        <%= link_to "My Profile", profile_path, class: "#{'notification' if current_user.friend_requests_in.any? }" %>
       <% else %>
         <%= link_to "Login", new_user_session_path, method: :get %>
       <% end %>

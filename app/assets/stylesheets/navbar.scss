@@ -39,4 +39,14 @@
       @include transition;
     }
   }
+
+  .notification::after {
+    content: "1";
+    margin-left: 0.4rem;
+    padding: 0.2rem;
+    background-color: $white;
+    color: $red;
+
+    border-radius: 1rem;
+  }
 }
