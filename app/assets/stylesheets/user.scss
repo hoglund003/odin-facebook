@@ -10,6 +10,8 @@
   @include card;
   border: none;
   background-color: $white;
+  padding: 0.6rem 1.4rem;
+  font-weight: 700;
   &:hover {
     cursor: pointer;
   }
@@ -85,4 +87,43 @@
 
   border: none;
   border-radius: 1rem;
+}
+
+.friends {
+  .friend {
+    .avatar {
+      width: 4rem;
+    }
+    .name {
+      font-weight: 600;
+      font-size: 1.4rem;
+    }
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    & > *:last-child {
+      margin-left: auto;
+    }
+  }
+  h2 {
+    background-color: $red;
+    color: $white;
+    padding: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  ul {
+    padding: 2rem;
+    border: 3px solid $red;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+
+  li {
+    margin-bottom: 1rem;
+  }
+
+  margin-top: 1rem;
 }

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="friends">
+    <h2>Friends</h2>
+    <ul>
+      <% @friends.each do |friend| %>
+        <a href="<%= user_path(friend) %>">
+          <li class="friend">
+            <img class="avatar" src="https://avatars.dicebear.com/api/initials/<%= friend.profile.full_name %>.svg?radius=50" alt="avatar">
+            <p class="name"><%= friend.profile.full_name %></p>
+            <div>
+              <%= render partial: "add_friend_button", locals: {user: friend} %>
+            </div>
+          </li>
+        </a>
+      <% end %>
+    </ul>
+  </div>
+</div>

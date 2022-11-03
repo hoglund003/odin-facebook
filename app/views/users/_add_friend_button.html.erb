@@ -2,7 +2,7 @@
   <% return %>
 <% end %>
 <% if current_user.friends.include?(user)%>
-  <% return "You are friends" %>
+  <% return %>
 <% end %>
 <% if current_user.friend_requests.where(friend: user).any? %>
   <% return "Request sendt" %>

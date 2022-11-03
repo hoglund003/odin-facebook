@@ -11,8 +11,9 @@
     <div class="info">
       <h2>Info</h2>
       <ul>
-        <li><%= @user.friends.count %> Friends</li>
-        <li>lorem ipsum</li>
+        <li>
+          <%= link_to "#{@user.friends.count} Friends", user_friends_path(@user)%>
+        </li>
         <li>lorem ipsum</li>
         <li>lorem ipsum</li>
         <li>lorem ipsum</li>
