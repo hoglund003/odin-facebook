@@ -1,0 +1,13 @@
+<% if current_user == user %>
+  <% return %>
+<% end %>
+<% if current_user.friends.include?(user)%>
+  <% return "You are friends" %>
+<% end %>
+<% if current_user.friend_requests.where(friend: user).any? %>
+  <% return "Request sendt" %>
+<% end %>
+<% if current_user.friend_requests.where(user: user, friend: current_user).any?%>
+  <% return "Respond to request" %>
+<% end %>
+<%= button_to "Add Friend", user_friend_request_path(user), class: "friend button" %>

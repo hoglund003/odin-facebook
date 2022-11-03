@@ -1,10 +1,18 @@
 @import "colors";
 
 @mixin card {
-  background-color: $white;
   box-shadow: $shadow;
   border-radius: 1rem;
   padding: 1rem;
+}
+
+.button {
+  @include card;
+  border: none;
+  background-color: $white;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .profile {
@@ -36,6 +44,8 @@
     p {
       @include card;
       height: 60%;
+
+      margin-bottom: 1rem
     }
   }
 
@@ -64,4 +74,15 @@
       @include card;
     }
   }
+}
+
+.friend.button {
+  padding: 1rem;
+  font-size: 1.6rem;
+
+  background-color: $red;
+  color: $white;
+
+  border: none;
+  border-radius: 1rem;
 }

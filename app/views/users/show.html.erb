@@ -6,11 +6,12 @@
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat placeat illo, doloribus quod minima cumque. Facere expedita corrupti aspernatur, autem accusamus nobis velit animi ipsam ducimus, vitae ab quibusdam aliquid.
       </p>
+      <%= render partial: "add_friend_button", locals: { user: @user } %>
     </div>
     <div class="info">
       <h2>Info</h2>
       <ul>
-        <li>lorem ipsum</li>
+        <li><%= @user.friends.count %> Friends</li>
         <li>lorem ipsum</li>
         <li>lorem ipsum</li>
         <li>lorem ipsum</li>

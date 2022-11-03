@@ -11,7 +11,7 @@ class FriendRequestsController < ApplicationController
 
   def update
     friend_request = FriendRequest.find(params[:id])
-    friend_request.update(status: "accepted")
+    friend_request.delete
     Friendship.create(user: friend_request.user, friend: friend_request.friend)
     Friendship.create(user: friend_request.friend, friend: friend_request.user)
     redirect_back(fallback_location: root_path)
