@@ -1,12 +1,14 @@
 <div class="container">
-  <%= form_with model: @post do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="new-post">
+    <%= form_with model: @post do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: "My fantastic post!" %>
 
-    <%= f.label :body %>
-    <%= f.text_area :body %>
+      <%= f.label :body %>
+      <%= f.text_area :body, placeholder: "Once upon a time...", rows: 10, cols: 40 %>
 
-    <%= f.submit %>
-    
-  <% end %>
+      <%= f.submit class: "button" %>
+      
+    <% end %>
+  </div>
 </div>

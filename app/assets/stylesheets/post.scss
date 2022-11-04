@@ -1,0 +1,14 @@
+@import "colors";
+
+.new-post {
+  form {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 1.4rem;
+
+    input {
+      margin-bottom: 1rem;
+    }
+  }
+}
