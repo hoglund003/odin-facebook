@@ -9,15 +9,7 @@
         <%= post.body %>
       </p>
       <div class="actions">
-        <% if current_user.likes.map{|l| l.post}.include?(post) %>
-          <a href="<%= post_like_path(post.id) %>" data-turbo-method="delete">
-            <button class="liked button">Liked <%= post.likes.count %></button>
-          </a>
-        <% else %>
-          <a href="<%= post_like_path(post.id) %>" data-turbo-method="post">
-            <button class="like button">Like <%= post.likes.count %></button>
-          </a>
-        <% end %>
+        <%= render partial: "like_button", locals: { post: post } %>
       </div>
     </div>
   <% end %>

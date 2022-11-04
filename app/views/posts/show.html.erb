@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="post">
+    <h1>
+      <%= @post.title %>
+    </h1>
+    <p>
+      <%= @post.body %>
+    </p>
+      <div class="actions">
+        <%= render partial: "like_button", locals: { post: @post } %>
+      </div>
+  </div>
+</div>
