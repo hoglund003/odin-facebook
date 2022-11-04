@@ -8,6 +8,9 @@
       <p>
         <%= post.body %>
       </p>
+      <div class="actions">
+        <%= button_to "Like", root_path, class:"like button" %>
+      </div>
     </div>
   <% end %>
   </div>

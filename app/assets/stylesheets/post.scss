@@ -6,6 +6,10 @@
   padding: 1rem;
 }
 
+.button.like {
+  
+}
+
 .new-post {
   form {
     display: flex;
@@ -32,6 +36,13 @@
 
   .post {
     @include card;
+
+    display: flex;
+    flex-direction: column;
+
+    .actions {
+      margin-top: auto;
+    }
   }
 
   .post.add {
