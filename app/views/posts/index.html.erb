@@ -10,9 +10,13 @@
       </p>
       <div class="actions">
         <% if current_user.likes.map{|l| l.post}.include?(post) %>
-          <%= button_to "Liked #{post.likes.count}", root_path, class:"liked button" %>
+          <a href="<%= post_like_path(post.id) %>" data-turbo-method="delete">
+            <button class="liked button">Liked <%= post.likes.count %></button>
+          </a>
         <% else %>
-          <%= button_to "Like #{post.likes.count}", root_path, class:"like button" %>
+          <a href="<%= post_like_path(post.id) %>" data-turbo-method="post">
+            <button class="like button">Like <%= post.likes.count %></button>
+          </a>
         <% end %>
       </div>
     </div>

@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get "profile" => "users#show"
   get "profile/friends" => "users#friends"
   resources :friend_requests, only: ['update', 'destroy']
-  resources :posts, only: ['index', 'new', 'create']
+  resources :posts, only: ['index', 'new', 'create'] do 
+    resource :like, only: ['create', 'destroy']
+  end
 
   root 'static_pages#home'
 end
