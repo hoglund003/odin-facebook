@@ -13,4 +13,16 @@
       <%= render partial: "like_button", locals: { post: @post } %>
     </div>
   </div>
+  <div class="comments">
+    <% @post.comments.each do |comment| %>
+      <div class="comment">
+        <h4>
+          <%= comment.user.profile.full_name %>
+        </h4>
+        <p>
+          <%= comment.body %>
+        </p>
+      </div>
+    <% end %>
+  </div>
 </div>
