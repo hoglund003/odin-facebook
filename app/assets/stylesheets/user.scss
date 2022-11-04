@@ -65,36 +65,7 @@
   }
 
   .posts {
-    grid-row: 3;
-    grid-column: 2;
-
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-
     border-top: 3px solid $red;
-
-    padding: 2rem;
-
-    .post {
-      @include card;
-    }
-
-    .post.add {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 5rem;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
-    a {
-      text-decoration: none;
-    }
   }
 }
 

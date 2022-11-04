@@ -1,5 +1,11 @@
 @import "colors";
 
+@mixin card {
+  box-shadow: $shadow;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
 .new-post {
   form {
     display: flex;
@@ -10,5 +16,36 @@
     input {
       margin-bottom: 1rem;
     }
+  }
+}
+
+.posts {
+  grid-row: 3;
+  grid-column: 2;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+
+  padding: 2rem;
+
+  .post {
+    @include card;
+  }
+
+  .post.add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  a {
+    text-decoration: none;
   }
 }
