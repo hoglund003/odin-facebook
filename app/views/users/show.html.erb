@@ -15,8 +15,10 @@
           <%= link_to "#{@user.friends.count} Friends", user_friends_path(@user)%>
         </li>
         <li>
-          <% if current_user.friend_requests_in.any? %>
-            <%= link_to "New Friend Request", user_friends_path(@user) %>
+          <% if current_user == @user %>
+            <% if current_user.friend_requests_in.any? %>
+              <%= link_to "New Friend Request", user_friends_path(@user) %>
+            <% end %>
           <% end %>
         </li>
         <li>lorem ipsum</li>
@@ -25,9 +27,11 @@
       </ul>
     </div>
     <div class="posts">
-      <a href="<%= new_post_path %>">
-        <div class="post add">+</div>
-      </a>
+      <% if current_user == @user %>
+        <a href="<%= new_post_path %>">
+          <div class="post add">+</div>
+        </a>
+      <% end %>
       <% @user.posts.each do |post| %>
         <div class="post">
           <h3><%= post.title %></h3>
