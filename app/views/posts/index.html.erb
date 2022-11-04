@@ -9,7 +9,11 @@
         <%= post.body %>
       </p>
       <div class="actions">
-        <%= button_to "Like", root_path, class:"like button" %>
+        <% if current_user.likes.map{|l| l.post}.include?(post) %>
+          <%= button_to "Liked #{post.likes.count}", root_path, class:"liked button" %>
+        <% else %>
+          <%= button_to "Like #{post.likes.count}", root_path, class:"like button" %>
+        <% end %>
       </div>
     </div>
   <% end %>

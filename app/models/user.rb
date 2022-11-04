@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   has_many :posts
 
+  has_many :likes
+
   def friend_requests_in
     FriendRequest.where(friend: self)
   end

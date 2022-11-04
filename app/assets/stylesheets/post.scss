@@ -10,6 +10,11 @@
   
 }
 
+.button.liked {
+  background-color: $red;
+  color: $white;
+}
+
 .new-post {
   form {
     display: flex;
