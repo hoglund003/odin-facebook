@@ -83,4 +83,18 @@
 .comments {
   display: flex;
   flex-direction: column;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 1rem;
+  }
+  textarea {
+    @include card;
+    border: none;
+    margin-bottom: 1rem;
+
+    resize: none;
+  }
 }
