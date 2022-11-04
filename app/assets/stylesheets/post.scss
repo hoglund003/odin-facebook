@@ -56,7 +56,7 @@
   grid-column: 2;
 
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr auto;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
 
@@ -75,6 +75,7 @@
 
   a {
     text-decoration: none;
+    grid-column: 1 / -1;
   }
 }
 

@@ -24,7 +24,7 @@
 
 .profile {
   display: grid;
-  grid-template: 0.2fr 0.8fr 1fr / 1fr 2fr;
+  grid-template: 0.2fr 0.8fr auto / 1fr 2fr;
 
   .avatar {
     grid-row: 1 / span 2;
@@ -59,9 +59,10 @@
   .info {
     @include card;
     width: 80%;
+    max-height: 200px;
 
     grid-row: 3;
-    grid-column: 1;    
+    grid-column: 1; 
   }
 
   .posts {
