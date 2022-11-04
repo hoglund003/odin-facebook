@@ -25,12 +25,17 @@
       </ul>
     </div>
     <div class="posts">
-      <div class="post" style='height: 10rem; width: 10rem; background-color: gray;'>Post placeholder</div>
-      <div class="post" style='height: 10rem; width: 10rem; background-color: gray;'>Post placeholder</div>
-      <div class="post" style='height: 10rem; width: 10rem; background-color: gray;'>Post placeholder</div>
-      <div class="post" style='height: 10rem; width: 10rem; background-color: gray;'>Post placeholder</div>
-      <div class="post" style='height: 10rem; width: 10rem; background-color: gray;'>Post placeholder</div>
-      <div class="post" style='height: 10rem; width: 10rem; background-color: gray;'>Post placeholder</div>
+      <a href="<%= new_post_path %>">
+        <div class="post add">+</div>
+      </a>
+      <% @user.posts.each do |post| %>
+        <div class="post">
+          <h3><%= post.title %></h3>
+          <p>
+            <%= post.body %>
+          </p>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
