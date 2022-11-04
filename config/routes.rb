@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :friend_requests, only: ['update', 'destroy']
   resources :posts, only: ['index', 'show', 'new', 'create'] do 
     resource :like, only: ['create', 'destroy']
+    resources :comments, only: ['index', 'new', 'create']
   end
 
   root 'static_pages#home'
