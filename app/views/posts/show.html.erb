@@ -1,13 +1,16 @@
 <div class="container">
   <div class="post">
+    <h3>
+      <%= @post.user.profile.full_name %>
+    </h3>
     <h1>
       <%= @post.title %>
     </h1>
     <p>
       <%= @post.body %>
     </p>
-      <div class="actions">
-        <%= render partial: "like_button", locals: { post: @post } %>
-      </div>
+    <div class="actions">
+      <%= render partial: "like_button", locals: { post: @post } %>
+    </div>
   </div>
 </div>
