@@ -11,6 +11,10 @@
   color: $white;
 }
 
+.time-ago {
+  color: gray;
+}
+
 .new-post {
   form {
     display: flex;
@@ -76,10 +80,6 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-
-  .time-ago {
-    color: gray;
-  }
 }
 
 .comments {

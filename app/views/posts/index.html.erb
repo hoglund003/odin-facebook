@@ -2,11 +2,17 @@
   <div class="posts">
   <% @posts.each do |post| %>
     <div class="post">
+      <h4>
+        <%= post.user.profile.full_name %>
+      </h4>
       <h2>
         <%= post.title %>
       </h2>
       <p>
         <%= post.body %>
+      </p>
+      <p class="time-ago">
+        <%= time_ago_in_words(post.created_at) %>
       </p>
       <div class="actions">
         <%= render partial: "like_button", locals: { post: post } %>
