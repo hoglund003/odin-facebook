@@ -3,6 +3,8 @@ Profile.delete_all
 FriendRequest.delete_all
 Friendship.delete_all
 Post.delete_all
+Like.delete_all
+Comment.delete_all
 
 password = "Admin:123"
 admin = User.create!(email: "admin@local", password: password)
@@ -18,5 +20,12 @@ User.all.each do |user|
     title = Faker::Lorem.sentence
     body = Faker::Lorem.paragraph
     user.posts.create!(title: title, body: body)
+  end
+end
+
+Post.all.each do |post|
+  5.times do
+    body = Faker::Lorem.sentence
+    post.comments.create!(body: body, user: User.all.sample)
   end
 end
