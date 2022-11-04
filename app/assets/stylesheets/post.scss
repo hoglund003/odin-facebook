@@ -33,7 +33,9 @@
   margin-bottom: 1rem;
 
   .actions {
-    margin-top: auto
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
   }
 
   p {
