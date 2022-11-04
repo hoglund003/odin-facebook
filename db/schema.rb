@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_04_094750) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_04_152627) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "biographies", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_biographies_on_profile_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
