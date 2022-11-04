@@ -4,7 +4,7 @@
     <h1 class="name"><%= @user.profile.full_name %></h1>
     <div class="bio">
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat placeat illo, doloribus quod minima cumque. Facere expedita corrupti aspernatur, autem accusamus nobis velit animi ipsam ducimus, vitae ab quibusdam aliquid.
+        <%= @user.profile.biography.body %>
       </p>
       <%= render partial: "add_friend_button", locals: { user: @user } %>
     </div>
