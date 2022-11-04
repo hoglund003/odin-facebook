@@ -15,7 +15,7 @@
   </div>
   <div class="comments">
     <%= form_with url: post_comments_path(params[:id]) do |f| %>
-      <%= f.text_area :body, rows: 5%>
+      <%= f.text_area :body, rows: 5, placeholder: "Comment on this post" %>
       <%= f.submit "Post comment", class: "button" %>
     <% end %>
 
