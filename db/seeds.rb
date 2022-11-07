@@ -12,6 +12,8 @@ Job.delete_all
 countries = ["Norway"]
 towns = ["Skien", "Oslo", "Drammen"]
 
+relationship_statuses = ["Married to", "In a relationship with", "Single"]
+
 password = "Admin:123"
 admin = User.create!(email: "admin@local", password: password)
 Profile.create!(user: admin, first_name: "Admin", last_name: "Boss")
@@ -31,6 +33,15 @@ end
 
 Profile.all.each do |profile|
   Job.create!(profile: profile, title: Faker::Job.title, company: Faker::Company.name)
+
+  relationship_status = relationship_statuses.sample
+  if relationship_status == "Single"
+    partner = nil
+  else
+    partner = Profile.all.sample
+  end
+
+  Relationship.create!(profile: profile, status: relationship_status, partner: partner)
 end
 
 User.all.each do |user|

@@ -4,6 +4,7 @@ class Profile < ApplicationRecord
   has_one :profile_town
   has_one :town, through: :profile_town
   has_many :jobs
+  has_one :relationship
 
   def full_name
     "#{first_name} #{last_name}"

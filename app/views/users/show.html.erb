@@ -25,7 +25,7 @@
         <% @user.profile.jobs.each do |job| %>
           <li><%= job.title %> at <%= job.company %></li>
         <% end %>
-        <li>lorem ipsum</li>
+        <li><%= @user.profile.relationship.status %> <%= @user.profile.relationship.partner.full_name unless @user.profile.relationship.partner.nil? %></li>
       </ul>
     </div>
     <div class="posts">
