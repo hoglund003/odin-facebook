@@ -7,6 +7,7 @@ Like.delete_all
 Comment.delete_all
 Biography.delete_all
 Town.delete_all
+Job.delete_all
 
 countries = ["Norway"]
 towns = ["Skien", "Oslo", "Drammen"]
@@ -26,6 +27,10 @@ end
 
 Profile.all.each do |profile|
   ProfileTown.create!(profile: profile, town: Town.all.sample)
+end
+
+Profile.all.each do |profile|
+  Job.create!(profile: profile, title: Faker::Job.title, company: Faker::Company.name)
 end
 
 User.all.each do |user|
