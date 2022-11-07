@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @posts = Post.all.order(created_at: :DESC)
+    @posts = Post.all.select{|p| p.user.friends.include?(current_user)}
   end
 
   def show
