@@ -22,7 +22,9 @@
           <% end %>
         </li>
         <li>Town: <%= @user.profile.town.name %>, <%= @user.profile.town.country %></li>
-        <li>lorem ipsum</li>
+        <% @user.profile.jobs.each do |job| %>
+          <li><%= job.title %> at <%= job.company %></li>
+        <% end %>
         <li>lorem ipsum</li>
       </ul>
     </div>
