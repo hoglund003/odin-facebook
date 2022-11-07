@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_04_152627) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_07_125804) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,6 +69,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_04_152627) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "profile_towns", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.bigint "town_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_profile_towns_on_profile_id"
+    t.index ["town_id"], name: "index_profile_towns_on_town_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id"
     t.text "first_name"
@@ -76,6 +85,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_04_152627) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "towns", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "name"
+    t.text "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_towns_on_user_id"
   end
 
   create_table "user_friends", force: :cascade do |t|
