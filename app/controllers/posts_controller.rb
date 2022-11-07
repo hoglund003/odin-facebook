@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @posts = Post.all.select{|p| p.user.friends.include?(current_user)}
+    @posts = Post.all.select{|p| p.user.friends.include?(current_user) || p.user == current_user}
+    @posts.sort_by{|p| p.created_at}
   end
 
   def show
