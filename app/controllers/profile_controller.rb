@@ -1,5 +1,6 @@
 class ProfileController < ApplicationController
   before_action :authenticate_user!
+  before_action :no_profile_exists?
   def new
     @profile = Profile.new
   end

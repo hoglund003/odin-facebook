@@ -1,5 +1,6 @@
 class FriendRequestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :profile_exists?
   def create
     friend_request = FriendRequest.new(user: current_user, friend: User.find(params[:user_id]), status: "pending")
     if friend_request.save

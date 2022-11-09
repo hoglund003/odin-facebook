@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :profile_exists?
   def index
     @posts = Post.all.select{|p| p.user.friends.include?(current_user) || p.user == current_user}
     @posts.sort_by{|p| p.created_at}

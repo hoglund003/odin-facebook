@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :profile_exists?
   def show
     @user = find_user(params[:id])
   end
