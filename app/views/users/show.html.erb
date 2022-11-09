@@ -4,7 +4,11 @@
     <h1 class="name"><%= @user.profile.full_name %></h1>
     <div class="bio">
       <p>
-        <%= @user.profile.biography.body %>
+        <% unless @user.profile.biography.nil? %>
+          <%= @user.profile.biography.body %>
+        <% else %>
+         No bio
+        <% end %>
       </p>
       <%= render partial: "add_friend_button", locals: { user: @user } %>
     </div>
@@ -21,11 +25,15 @@
             <% end %>
           <% end %>
         </li>
-        <li>Town: <%= @user.profile.town.name %>, <%= @user.profile.town.country %></li>
+        <% unless @user.profile.town.nil? %>
+          <li>Town: <%= @user.profile.town.name %>, <%= @user.profile.town.country %></li>
+        <% end %>
         <% @user.profile.jobs.each do |job| %>
           <li><%= job.title %> at <%= job.company %></li>
         <% end %>
-        <li><%= @user.profile.relationship.status %> <%= @user.profile.relationship.partner.full_name unless @user.profile.relationship.partner.nil? %></li>
+        <% unless @user.profile.town.nil? %>
+          <li><%= @user.profile.relationship.status %> <%= @user.profile.relationship.partner.full_name unless @user.profile.relationship.partner.nil? %></li>
+        <% end %>
       </ul>
       <% if current_user == @user%>
         <%= button_to "Log out", destroy_user_session_path, method: :delete, class:"button logout" %>

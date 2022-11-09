@@ -6,12 +6,15 @@ class ProfileController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(profile_params)
-  end
+    birthday = Date.new()
+    user_id = params[:user_id]
+    first_name = params[:first_name]
+    last_name = params[:last_name]
+    @profile = Profile.new(user_id: user_id, first_name: first_name, last_name: last_name, birthday: birthday)
 
-  private
-
-  def profile_params
-    params.require(:profile).permit(:user_id, :first_name, :last_name, :birthday)
+    if @profile.save
+      flash[:notice] = "Your profile has been created"
+      redirect_to profile_path(current_user)
+    end
   end
 end
