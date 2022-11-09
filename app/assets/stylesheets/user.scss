@@ -30,6 +30,7 @@
 .profile {
   display: grid;
   grid-template: 0.2fr 0.8fr auto / 1fr 2fr;
+  column-gap: 2%;
 
   .avatar {
     grid-row: 1 / span 2;
@@ -37,8 +38,10 @@
     align-self: center;
     justify-self: center;
 
-    width: 80%;
-    height: 80%;
+    // padding: 100px;
+    width: 12rem;
+    height: 12rem;
+    padding: 1rem;
     border-radius: 50%;
   }
 
