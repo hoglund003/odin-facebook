@@ -27,6 +27,9 @@
         <% end %>
         <li><%= @user.profile.relationship.status %> <%= @user.profile.relationship.partner.full_name unless @user.profile.relationship.partner.nil? %></li>
       </ul>
+      <% if current_user == @user%>
+        <%= button_to "Log out", destroy_user_session_path, method: :delete, class:"button logout" %>
+      <% end %>
     </div>
     <div class="posts">
       <% if current_user == @user %>
