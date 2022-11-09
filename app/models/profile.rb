@@ -6,6 +6,8 @@ class Profile < ApplicationRecord
   has_many :jobs
   has_one :relationship
 
+  accepts_nested_attributes_for :user, :biography, :town, :jobs, :relationship
+
   def full_name
     "#{first_name} #{last_name}"
   end

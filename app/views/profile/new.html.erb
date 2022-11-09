@@ -16,6 +16,18 @@
           <%= f.date_select("birthday", :end_year => 1900, :start_year => Date.current.year - 13, :order => [:day, :month, :year]) %>
         </div>
       </div>
+      <div class="info">
+        <%= f.fields_for :job do |job_attributes| %>
+          <div class="field">
+            <%= job_attributes.label "Job title" %>
+            <%= job_attributes.text_field :title, placeholder: "e.x. Clown" %>
+          </div>
+          <div class="field">
+            <%= job_attributes.label "Company name" %>
+            <%= job_attributes.text_field :company, placeholder: "e.x. Circus Inc." %>
+          </div>
+        <% end%>
+      </div>
       <%= f.submit "Save" %>
     <% end %>
   </div>
