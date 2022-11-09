@@ -1,0 +1,15 @@
+@import "colors";
+
+@mixin card {
+  box-shadow: $shadow;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.new-profile {
+  .info {
+    @include card;
+
+    
+  }
+}

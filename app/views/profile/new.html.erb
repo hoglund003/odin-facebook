@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="new-profile">
+    <%= form_with url: profile_new_path  do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <div class="info">
+        <div class="field">
+          <%= f.label "First Name" %>
+          <%= f.text_field "first_name" %>
+        </div>
+        <div class="field">
+          <%= f.label "Last Name" %>
+          <%= f.text_field "last_name" %>
+        </div>
+        <div class="field">
+          <%= f.label "Birthday" %>
+          <%= date_select("profile", "birthday", :end_year => 1900, :start_year => Date.current.year - 13) %>
+        </div>
+      </div>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

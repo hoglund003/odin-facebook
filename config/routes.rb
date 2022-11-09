@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "profile" => "users#show"
   get "profile/friends" => "users#friends"
   get "profile/new" => "profile#new"
+  post "profile/new" => "profile#create"
   resources :friend_requests, only: ['update', 'destroy']
   resources :posts, only: ['index', 'show', 'new', 'create'] do 
     resource :like, only: ['create', 'destroy']
