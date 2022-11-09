@@ -5,18 +5,18 @@
       <div class="info">
         <div class="field">
           <%= f.label "First Name" %>
-          <%= f.text_field "first_name" %>
+          <%= f.text_field "first_name", placeholder:"e.x. Joe" %>
         </div>
         <div class="field">
           <%= f.label "Last Name" %>
-          <%= f.text_field "last_name" %>
+          <%= f.text_field "last_name", placeholder:"e.x. Doe" %>
         </div>
         <div class="field">
           <%= f.label "Birthday" %>
           <%= f.date_select("birthday", :end_year => 1900, :start_year => Date.current.year - 13) %>
         </div>
       </div>
-      <%= f.submit %>
+      <%= f.submit "Create" %>
     <% end %>
   </div>
 </div>
