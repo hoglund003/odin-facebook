@@ -16,11 +16,13 @@ relationship_statuses = ["Married to", "In a relationship with", "Single"]
 
 password = "Admin:123"
 admin = User.create!(email: "admin@local", password: password)
-Profile.create!(user: admin, first_name: "Admin", last_name: "Boss")
+birthday = Faker::Date.birthday(min_age: 18, max_age: 65)
+Profile.create!(user: admin, first_name: "Admin", last_name: "Boss", birthday: birthday)
 10.times do 
   email = Faker::Internet.safe_email
   user = User.create!(email: email, password: password)
-  Profile.create!(user: user, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
+  birthday = Faker::Date.birthday(min_age: 18, max_age: 65)
+  Profile.create!(user: user, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, birthday: birthday)
 end
 
 towns.each do |town|

@@ -4,6 +4,7 @@ class CreateProfiles < ActiveRecord::Migration[7.0]
       t.belongs_to :user
       t.text :first_name
       t.text :last_name
+      t.date :birthday
 
       t.timestamps
     end
