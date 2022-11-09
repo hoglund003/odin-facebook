@@ -1,0 +1,56 @@
+@import "colors";
+
+@mixin card {
+  box-shadow: $shadow;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.devise {
+  @include card;
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  label {
+    margin-bottom: 0.4rem;
+  }
+
+  input {
+    border: none;
+    border-radius: 1rem;
+    padding: 0.6rem 0.8rem;
+    box-shadow: $shadow;
+  }
+
+  input[type="submit"] {
+    background-color: $red;
+    color: $white;
+
+    padding: 0.6rem 0.8rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  a {
+    margin: 0 0.8rem;
+  }
+
+  #remember-me {
+    display: flex;
+    flex-direction: row;
+    align-items:baseline;
+    gap: 0.4rem;
+  }
+}
