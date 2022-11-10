@@ -3,6 +3,9 @@ class PostsController < ApplicationController
   before_action :profile_exists?
   def index
     @posts = Post.all.select{|p| p.user.friends.include?(current_user) || p.user == current_user}
+    @posts.concat(Post.all.select{|p| p.user.profile.town == current_user.profile.town})
+    @posts.concat(current_user.posts)
+    @posts.uniq
     @posts.sort_by{|p| p.created_at}
   end
 
