@@ -9,6 +9,7 @@ class ProfileController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     if @profile.save
+      Job.create(title: params[:job][:title], company: params[:job][:company], profile: @profile)
       flash[:notice] = "Your profile has been created"
       redirect_to profile_path(current_user)
     end
