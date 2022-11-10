@@ -1,0 +1,47 @@
+<div class="new-profile">
+  <%= form_with model: profile, url: profile_new_path  do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div class="info" data-controller="fill-out">
+      <h3>Create your basic profile</h3>
+      <p class="warning" data-fill-out-target="warning" hidden>Fill them all out, please.</p>
+      <div class="field">
+        <%= f.label "First Name" %>
+        <%= f.text_field( :first_name, :data => {"fill-out-target" => "input", "action" => "input->fill-out#test"}, placeholder:"e.x. Joe") %>
+      </div>
+      <div class="field">
+        <%= f.label "Last Name" %>
+        <%= f.text_field( "last_name", :data => {"fill-out-target" => "input", "action" => "input->fill-out#test"}, placeholder:"e.x. Doe") %>
+      </div>
+      <div class="field" id="birthday">
+        <%= f.label "Birthday" %>
+        <%= f.date_select("birthday", :end_year => 1900, :start_year => Date.current.year - 13, :order => [:day, :month, :year]) %>
+      </div>
+    </div>
+    <div class="info" data-controller="fill-out">
+      <h3>Tell others where you work...</h3>
+      <p>(optional)</p>
+      <p class="warning" data-fill-out-target="warning" hidden>Fill them all out, please.</p>
+      <%= f.fields_for :job do |job_attributes| %>
+        <div class="field">
+          <%= job_attributes.label "Job title" %>
+          <%= job_attributes.text_field( :title, :data => {"fill-out-target" => "input", "action" => "input->fill-out#test"}, placeholder: "e.x. Clown") %>
+        </div>
+        <div class="field">
+          <%= job_attributes.label "Company name" %>
+          <%= job_attributes.text_field( :company, :data => {"fill-out-target" => "input", "action" => "input->fill-out#test"}, placeholder: "e.x. Circus Inc.") %>
+        </div>
+      <% end%>
+    </div>
+    <div class="info">
+      <h3>...and where you live.</h3>
+      <p>(optional)</p>
+      <%= f.fields_for :profile_town do |profile_town_attributes| %>
+        <div class="field">
+          <%= profile_town_attributes.label "Your current town" %>
+          <%= profile_town_attributes.select(:town_id, towns, { prompt: "Select Town!", selected: town}) %>
+        </div>
+      <% end%>
+    </div>
+      <%= f.submit "Save" %>
+    <% end %>
+  </div>
