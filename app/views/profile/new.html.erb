@@ -3,6 +3,7 @@
     <%= form_with url: profile_new_path  do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <div class="info">
+        <h3>Create your basic profile</h3>
         <div class="field">
           <%= f.label "First Name" %>
           <%= f.text_field "first_name", placeholder:"e.x. Joe" %>
@@ -17,6 +18,8 @@
         </div>
       </div>
       <div class="info">
+        <h3>Tell others where you work...</h3>
+        <p>(optional)</p>
         <%= f.fields_for :job do |job_attributes| %>
           <div class="field">
             <%= job_attributes.label "Job title" %>
@@ -29,6 +32,8 @@
         <% end%>
       </div>
       <div class="info">
+        <h3>...and where you live.</h3>
+        <p>(optional)</p>
         <%= f.fields_for :profile_town do |profile_town_attributes| %>
           <div class="field">
             <%= profile_town_attributes.label "Your current town" %>
