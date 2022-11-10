@@ -6,6 +6,11 @@
   padding: 1rem;
 }
 
+.warning {
+  font-size: 0.8rem;
+  color: $red;
+}
+
 .new-profile {
   form {
     display: flex;
