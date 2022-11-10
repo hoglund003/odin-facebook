@@ -10,6 +10,7 @@ class ProfileController < ApplicationController
     @profile = Profile.new(profile_params)
     if @profile.save
       Job.create(title: params[:job][:title], company: params[:job][:company], profile: @profile)
+      ProfileTown.create(profile: @profile, town_id: params[:profile_town][:town_id])
       flash[:notice] = "Your profile has been created"
       redirect_to profile_path(current_user)
     end
