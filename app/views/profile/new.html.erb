@@ -28,6 +28,14 @@
           </div>
         <% end%>
       </div>
+      <div class="info">
+        <%= f.fields_for :profile_town do |profile_town_attributes| %>
+          <div class="field">
+            <%= profile_town_attributes.label "Your current town" %>
+            <%= profile_town_attributes.select(:town_id, @towns, { prompt: "Select Town!" }) %>
+          </div>
+        <% end%>
+      </div>
       <%= f.submit "Save" %>
     <% end %>
   </div>

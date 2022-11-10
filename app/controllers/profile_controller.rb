@@ -3,6 +3,7 @@ class ProfileController < ApplicationController
   before_action :no_profile_exists?
   def new
     @profile = Profile.new
+    @towns = Town.all.map{|t| [t.name, t.id]}
   end
 
   def create
