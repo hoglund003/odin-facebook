@@ -7,6 +7,7 @@ Like.delete_all
 Comment.delete_all
 Biography.delete_all
 Town.delete_all
+ProfileTown.delete_all
 Job.delete_all
 
 countries = ["Norway"]
