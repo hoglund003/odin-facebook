@@ -1,6 +1,14 @@
 class ProfileController < ApplicationController
   before_action :authenticate_user!
-  before_action :no_profile_exists?
+  before_action :no_profile_exists?, except: [:edit]
+
+  def edit
+    @profile = current_user.profile
+    @town = @profile.town.instance_eval{|t| [t.name, t.id]}
+    @towns = Town.all.map{|t| [t.name, t.id]}
+  end
+
+
   def new
     @profile = Profile.new
     @towns = Town.all.map{|t| [t.name, t.id]}
