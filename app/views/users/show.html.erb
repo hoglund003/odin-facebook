@@ -26,14 +26,14 @@
           <% end %>
         </li>
         <% unless @user.profile.town.nil? %>
-          <>Town: <%= @user.profile.town.name %>, <%= @user.profile.town.country %></li>
+          Town: <%= @user.profile.town.name %>, <%= @user.profile.town.country %></li>
         <% end %>
         <li>
           <% unless @user.profile.job.nil? %>
             <%= @user.profile.job.title %> at <%= @user.profile.job.company %>
           <% end %>
         </li>
-        <% unless @user.profile.town.nil? %>
+        <% unless @user.profile.relationship.nil? %>
           <li><%= @user.profile.relationship.status %> <%= @user.profile.relationship.partner.full_name unless @user.profile.relationship.partner.nil? %></li>
         <% end %>
       </ul>
