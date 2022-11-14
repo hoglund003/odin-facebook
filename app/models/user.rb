@@ -9,12 +9,12 @@ class User < ApplicationRecord
 
   has_many :friend_requests, dependent: :destroy
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
-  has_many :likes
-  has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
 
   def friend_requests_in
