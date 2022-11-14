@@ -3,13 +3,19 @@
     <img class="avatar" src="https://avatars.dicebear.com/api/initials/<%= @user.profile.full_name %>.svg?radius=50" alt="">
     <h1 class="name"><%= @user.profile.full_name %></h1>
     <div class="bio">
-      <p>
-        <% unless @user.profile.biography.nil? %>
-          <%= @user.profile.biography.body %>
-        <% else %>
-         No bio
-        <% end %>
-      </p>
+      <% if current_user == @user %>
+        <turbo-frame id="turbo-biography" src="profile/bio">
+          loading
+        </turbo-frame>
+      <% else %>
+        <p>
+          <% unless @user.profile.biography.nil? %>
+            <%= @user.profile.biography.body %>
+          <% else %>
+          No bio
+          <% end %>
+        </p>
+      <% end %>
       <%= render partial: "add_friend_button", locals: { user: @user } %>
     </div>
     <div class="info">

@@ -1,0 +1,6 @@
+<turbo-frame id="turbo-biography">
+  <%= form_with model: @user.profile.biography, url: profile_bio_path, calss: "bio" do |f| %>
+    <%= f.text_area :body, rows: 6, placeholder: "Tell the world who YOU are..." %>
+    <%= f.submit "Save bio", class: "button" %>
+  <% end %>
+</turbo-frame>
