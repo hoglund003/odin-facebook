@@ -54,6 +54,16 @@ User.all.each do |user|
     user.posts.create!(title: title, body: body)
   end
 
+  5.times do
+    friend = User.all.sample
+    begin
+      Friendship.create!(user: user, friend: friend)
+      Friendship.create!(user: friend, friend: user)
+    rescue
+      puts 'I am rescued.'
+    end
+  end
+
   Biography.create!(body: Faker::Lorem.paragraph, profile: user.profile)
 end
 
