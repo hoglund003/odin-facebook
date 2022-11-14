@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :profile_exists?
+  def index
+    @user = find_user(params[:id])
+    @users = User.all
+  end
+
   def show
     @user = find_user(params[:id])
   end
