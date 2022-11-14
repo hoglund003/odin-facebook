@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post "profile/new" => "profile#create"
   get "profile/edit" => "profile#edit"
   post "profile/edit" => "profile#update"
+  get "profile/bio" => "biography#edit"
+  patch "profile/bio" => "biography#update"
   resources :friend_requests, only: ['update', 'destroy']
   resources :posts, only: ['index', 'show', 'new', 'create'] do 
     resource :like, only: ['create', 'destroy']
