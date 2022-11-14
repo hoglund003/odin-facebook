@@ -1,5 +1,5 @@
 <div class="new-profile">
-  <%= form_with model: profile, url: profile_new_path  do |f| %>
+  <%= form_with model: profile, url: url, method: method do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <div class="info" data-controller="fill-out">
       <h3>Create your basic profile</h3>
