@@ -44,7 +44,10 @@
         <% end %>
       </ul>
       <% if current_user == @user%>
-        <%= button_to "Log out", destroy_user_session_path, method: :delete, class:"button logout" %>
+        <div class="actions">
+          <%= button_to "Log out", destroy_user_session_path, method: :delete, class:"button logout" %>
+          <%= button_to "Edit", profile_edit_path, method: :get, class:"button" %>
+        </div>
       <% end %>
     </div>
     <div class="posts">
