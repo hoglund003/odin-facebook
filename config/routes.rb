@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, path: 'u'
+  devise_for :users, path: 'u', controllers: { omniauth_callbacks: 'u/omniauth_callbacks' }
   resources :users, only: ['show', 'index'] do 
     resource :friend_request, only: ['create']
     get "friends" => "users#friends"
