@@ -2,6 +2,12 @@ class BiographyController < ApplicationController
   def edit
     @user = find_user(params[:id])
 
+    if @user.profile.biography.nil?
+      @biography = Biography.new(profile: @user.profile)
+    else
+      @biography = @user.profile.biography
+    end
+
     if turbo_frame_request?
       render partial: "profile/biography", locals: { biography: @biography }
       return
@@ -13,11 +19,11 @@ class BiographyController < ApplicationController
     unless @user.profile.biography.nil?
       @user.profile.biography.update(body: params[:biography][:body])
     else
-      @user.profile.build_biography(body: params[:biography][:body])
+      @user.profile.build_biography(body: params[:biography][:body]).save
     end
 
     if turbo_frame_request?
-      render partial: "profile/biography", locals: { biography: @biography }
+      render partial: "profile/biography", locals: { biography: @user.profile.biography }
       return
     end
   end

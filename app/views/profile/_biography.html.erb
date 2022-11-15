@@ -1,5 +1,5 @@
 <turbo-frame id="turbo-biography">
-  <%= form_with model: @user.profile.biography, url: profile_bio_path, calss: "bio", data: {"controller": "input"} do |f| %>
+  <%= form_with model: @user.profile.biography, url: profile_bio_path, calss: "bio", method: :patch, data: {"controller": "input"} do |f| %>
     <%= f.text_area :body, rows: 6, data: {"input-target": "input", "action": "input#appearOnChange"}, placeholder: "Tell the world who YOU are..." %>
     <%= f.submit "Save bio", class: "button", data: {"input-target": "hiddenInput"} %>
   <% end %>
