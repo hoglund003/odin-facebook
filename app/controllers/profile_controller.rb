@@ -3,10 +3,10 @@ class ProfileController < ApplicationController
   before_action :no_profile_exists?, except: [:edit, :update]
   
   def new
-    name = params[:name].split(" ")
-    if name.nil?
+    if params[:name].nil?
       @profile = Profile.new
     else
+      name = params[:name].split(" ")
       @profile = Profile.new(first_name: name[0], last_name: name[-1])
     end
     @towns = Town.all.map{|t| [t.name, t.id]}
@@ -18,6 +18,7 @@ class ProfileController < ApplicationController
     if @profile.save
       @profile.build_job(job_params).save
       @profile.build_profile_town(town_params).save
+      ProfileMailer.with(profile: @profile).welcome_email.deliver_later
       flash[:notice] = "Your profile has been created"
       redirect_to profile_path
     end
