@@ -3,7 +3,12 @@ class ProfileController < ApplicationController
   before_action :no_profile_exists?, except: [:edit, :update]
   
   def new
-    @profile = Profile.new
+    name = params[:name].split(" ")
+    if name.nil?
+      @profile = Profile.new
+    else
+      @profile = Profile.new(first_name: name[0], last_name: name[-1])
+    end
     @towns = Town.all.map{|t| [t.name, t.id]}
     @profile.job = Job.new
   end
@@ -20,15 +25,31 @@ class ProfileController < ApplicationController
 
   def edit
     @profile = current_user.profile
-    @town = @profile.town.instance_eval{|t| [t.name, t.id]}
+    unless @profile.town.nil?
+      @town = @profile.town.instance_eval{|t| [t.name, t.id]}
+    end
     @towns = Town.all.map{|t| [t.name, t.id]}
+    unless @profile.job.nil?
+      @job = @profile.job
+    else
+      @job = Job.new(profile: @profile)
+    end
   end
 
   def update
-    @profile = Profile.where(profile_params)
+    @profile = Profile.where(profile_params).first
     @profile.update(profile_params)
-    Job.where(profile: @profile).first.update(job_params)
-    ProfileTown.where(profile: @profile).update(town_params)
+    unless @profile.job.nil?
+      Job.where(profile: @profile).first.update(job_params)
+    else
+      @profile.build_job(job_params).save
+    end
+
+    unless @profile.town.nil?
+      ProfileTown.where(profile: @profile).update(town_params)
+    else
+      @profile.build_profile_town(town_params).save
+    end
     redirect_to profile_path
   end
 
